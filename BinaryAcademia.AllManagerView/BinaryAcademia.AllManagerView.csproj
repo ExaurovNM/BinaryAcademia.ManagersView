@@ -137,6 +137,7 @@
     <Content Include="packages.config" />
     <None Include="readme.txt" />
     <Content Include="Views\Home\AllManagersWithTasks.cshtml" />
+    <Content Include="Views\Home\ManagersTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

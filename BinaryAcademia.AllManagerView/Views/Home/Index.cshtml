@@ -1,9 +1,19 @@
-﻿@{
+﻿@using BinaryAcademia.AllManagerView.Models
+@{
     ViewBag.Title = "Home Page";
 }
 
 <h2>@ViewBag.Message</h2>
 <p>
     @Html.ActionLink("View all managers with their tasks.", "AllManagersWithTasks")
-
+    <br> View custom manager's tasks
+    <ul>
+        @foreach(Manager manager in ViewBag.Managers)
+        {
+            <li>
+                @Html.ActionLink(@manager.Name,"ManagersTask",new {id = manager.ManagerId})
+            </li>
+        }
+    </ul>
+    
 </p>
