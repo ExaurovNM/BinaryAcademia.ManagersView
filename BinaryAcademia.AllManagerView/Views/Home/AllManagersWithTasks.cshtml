@@ -1,0 +1,72 @@
+﻿@using System.Collections.Generic;
+
+@model ICollection<BinaryAcademia.AllManagerView.Models.Manager>
+
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+<head>
+    <title>AllManagersWithTasks</title>
+    
+    <style type="text/css">
+        div.task{
+                border:1px solid black;
+                width:100px;
+                height:100px;
+        }
+        
+        div.manager{
+                border:1px solid black;
+                width:100px;
+                height:30px;
+        }
+    </style>
+</head>
+    <body>
+        <!-- Caption of the table "Managers-Tasks"-->
+        <p align="center">Managars and their curent tasks.</p>
+        <table align="center">
+            
+   
+            
+            <!-- Header of the table (Managers names)-->
+            <tr>
+                @foreach(BinaryAcademia.AllManagerView.Models.Manager manager in Model)
+                {
+                    <td align="center" >
+                        <div class="manager">@manager.Name </div>
+                    </td>
+                }
+            </tr>
+            
+            <!-- Create a column with tasks-->
+            @foreach(BinaryAcademia.AllManagerView.Models.Manager manager in Model)
+            {
+                <td align="center">
+                    @if(manager.Tasks.Count!=0)
+                    {
+                        foreach(BinaryAcademia.AllManagerView.Models.Task task in manager.Tasks)
+                        {
+                            <div class="task">
+                                <b>@task.Title</b>
+                                <p>
+                                    @task.Description
+                                </p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <!--<div class="task" align="center">This manager don have a Task. Lets find it for this lazy man!</div> -->
+                    }
+                </td>
+                    
+
+            }
+        </table>
+    </body>
+</html>
